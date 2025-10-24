@@ -198,18 +198,21 @@ nav>ul>li>a>img {
 .info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--padding-small);
 }
 
-.more-info button {
+.more-info>a {
   background-color: var(--button-color);
   border: none;
-  width: 100%;
+  width: 25%;
+  height: auto;
   border-radius: var(--border-radius-large);
-  padding: var(--padding-medium);
+  padding: var(--padding-small);
   cursor: pointer;
   transition: background-color 0.3s;
+  text-align: center;
+  margin-right: auto;
 }
 
 .color-selector {
@@ -602,6 +605,10 @@ input[type="checkbox"]:hover {
   .product-card {
     height: auto;
     width: 100%;
+  }
+
+  .more-info>a {
+    width: 50%;
   }
 
   .concessionaire {
