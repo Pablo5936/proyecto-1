@@ -305,7 +305,6 @@ nav>ul>li>a>img {
 }
 
 .equipment-item img {
-  /* align-self: center; */
   object-fit: cover;
   margin-bottom: var(--margin-medium);
   width: 100%;
@@ -449,12 +448,14 @@ form {
 
 input[type="email"] {
   padding: var(--padding-medium);
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 43px;
   border: 1px solid var(--tertiary-color);
   border-radius: var(--border-radius-large);
   background-color: var(--input-footer-color);
   color: white;
+  box-sizing: border-box;
 }
 
 .email-input button {
@@ -469,7 +470,6 @@ input[type="email"] {
   width: 100px;
   cursor: pointer;
   transition: background-color 0.3s;
-  /* border: 4px solid white; */
 }
 
 input[type="checkbox"] {
@@ -645,25 +645,23 @@ input[type="checkbox"]:hover {
   }
 
   .equipment {
-    flex-direction: row;
-    align-items: flex-start;
+    justify-content: flex-start;
     gap: var(--margin-large);
+    padding-inline: var(--padding-medium);
     overflow-x: auto;
     overflow-y: hidden;
-    padding: var(--padding-medium);
-    margin-bottom: var(--margin-small);
+    scroll-snap-type: x proximity;
   }
 
   .equipment-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
+    min-width: 380px;
+    max-width: 90%;
     height: auto;
-    min-width: 400px;
+    scroll-snap-align: start;
   }
 
   .equipment-item button {
-    width: 30%;
+    width: 40%;
   }
 
   .red {
@@ -774,4 +772,23 @@ input[type="checkbox"]:hover {
   .more-info div {
     text-align: center;
   }
+}
+
+img,
+picture,
+svg,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
